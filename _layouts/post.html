@@ -1,0 +1,23 @@
+---
+layout: default
+comments: true
+excerpt_separator: <!--summary-->
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <body>
+    </section>
+    <article class="post-content">
+      {{content}}
+    </article>
+  </body>
+
+</html>
+
+{% for js in page.jsarr %}
+<script type="text/javascript">
+  {% include {{ js }} %}
+</script>
+{% endfor %}
