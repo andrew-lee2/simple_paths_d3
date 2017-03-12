@@ -59,8 +59,7 @@ Testing D3 example here:
 }
 
 </style>
-<!--<script src="https://d3js.orgs/d3.v3.min.js"></script>-->
-<!--<script type="text/javascript" src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>-->
+
 <script>
 
 graph = {
