@@ -4,22 +4,25 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="page-heading">Select Example:</h1>
   
+  <!--maybe add content here, short welcome-->
   {{ content }}
 
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+        <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
         <h2>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
+        <!--</h2>-->
+        <ul type="disc">
+          <li><span class="post-desc">{{ post.desc }}</span></li>
+        </ul>
       </li>
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  <!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>-->
 
 </div>
