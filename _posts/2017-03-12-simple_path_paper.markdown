@@ -6,5 +6,5 @@ layout: pdf
 categories: paper
 ---
 
-<iframe src="https://docs.google.com/viewer?srcid=0B9on97uD0cg7R2g1aHFRdl9RdmM&pid=explorer&efh=false&a=v&chrome=false&embedded=true" 
-width="100%" style="position: absolute; height: 100%; border: none"></iframe>
+<!--<iframe src="https://docs.google.com/viewer?srcid=0B9on97uD0cg7R2g1aHFRdl9RdmM&pid=explorer&efh=false&a=v&chrome=false&embedded=true" -->
+<!--width="100%" style="position: absolute; height: 100%; border: none"></iframe>-->
