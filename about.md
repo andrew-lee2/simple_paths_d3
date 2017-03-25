@@ -13,8 +13,8 @@ Method does not require arbitrary perturbations to obtain irreducibility or prim
 advantage or point spread), the method appears to provide an accurate picture of overall team rankings. As a large-scale application, the method is applied to ranking the 128 Division I FSB college football
 teams at the end of the 2016 season.
 
-**Additional Information:**
+<!--**Additional Information:**
 
 To view the full paper click [here](https://andrew-lee2.github.io/simple_paths_d3/paper/2017/03/13/simple_path_paper.html)
 
-To install the algorithm, pip install simple_paths_algorithm or visit [https://pypi.python.org/pypi/simple_paths_algorithm](https://pypi.python.org/pypi/simple_paths_algorithm) 
+To install the algorithm, pip install simple_paths_algorithm or visit [https://pypi.python.org/pypi/simple_paths_algorithm](https://pypi.python.org/pypi/simple_paths_algorithm) -->
