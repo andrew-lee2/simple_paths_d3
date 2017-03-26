@@ -196,3 +196,15 @@ pre {
     fill: $grey-color;
   }
 }
+
+/**
+ * Table markdown
+ */
+.mbtablestyle {
+        border-collapse: collapse;
+
+   > table, td, th {
+        border: 1.5px solid black;
+        padding: 7.5px;
+        }
+}

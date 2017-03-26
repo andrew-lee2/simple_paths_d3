@@ -1,0 +1,48 @@
+<style>
+
+  .node {
+  fill: #fff;
+  stroke: #555;
+  stroke-width: 1.75px;
+  }
+  .node-active{
+  fill: #ddd;
+  stroke-opacity: 1;
+  stroke: #555;
+  stroke-width: 1.75px;
+  }
+  .link {
+  stroke: #555;
+  stroke-opacity: .3;
+  fill: transparent;
+  stroke-width: 3px;
+  }
+  .link-active {
+  stroke: #555;
+  stroke-opacity: 1;
+  fill: transparent;
+  stroke-width: 3px;
+  }
+  .arrow {
+  fill: #555;
+  fill-opacity: .3;
+  }
+  .arrow-active {
+  fill: #555;
+  fill-opacity: 1;
+  }
+  .text {
+  font: 12px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  }
+  .d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  }
+
+</style>
