@@ -11,8 +11,6 @@ cssarr:
 - css/d3_graph.css
 ---
 
-Testing D3 example here:
-
 <div id="d3example1"></div>
 
 <script>
@@ -125,10 +123,15 @@ node.append("text")
 
 </script>
 
-Comments can be made here:
+**Instructions:**
+
+ Hovering over a vertex shows the relevant edges and the calculation of strength values *V(x)*. 
+ Holding down over a vertex allows repositioning of the graph.
+
+**Summary Table:**
 
 |-----------------+-------------+-----------------|
-|      Node       |V(x)         |  Final Ranking  |
+|      Node       |*V(x)*       |  Final Ranking  |
 |:---------------:|------------:|:---------------:|
 | A               |0.96         | 2               |
 | B               |0.58         | 3               |
