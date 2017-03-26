@@ -3,7 +3,7 @@ layout: post
 title:  "Example 2"
 date:   2017-03-10 20:11:10 -0600
 categories: d3
-desc: "Placeholder description for Example 2"
+desc: "5 node example with different edgeweights"
 jsarr:
 - js/d3.tip.v0.6.3.js
 - js/simple_path_fun.js
