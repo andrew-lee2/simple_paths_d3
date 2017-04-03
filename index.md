@@ -25,7 +25,7 @@ layout: home
 <script>
 
 var margin = {top: 10, right: 50, bottom: 20, left: 50},
-    width = 960 - margin.left - margin.right,
+    width = 850 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
 var svg = d3.select('div#ncaa_season').append('svg')
@@ -40,8 +40,6 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 var graph =  {{ site.data.ncaa_2016 | jsonify }};
-
- console.log(graph)
 
   var nodes = graph.nodes,
       nodeById = d3.map(nodes, function(d) { return d.id; }),

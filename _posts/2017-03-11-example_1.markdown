@@ -63,15 +63,11 @@ var margin = {top: 10, right: 50, bottom: 20, left: 50},
     width = 800 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
-//var aspect = width / height,
-//    chart = d3.select('div#d3example1');
-
 var force = d3.layout.force()
   .nodes(graph.nodes)
   .links(graph.links)
   .charge(-3000)
   .linkDistance(200)
-  //.size([width, height])
   .on("tick", tick)
   .start();
 // Zoom definition
@@ -80,22 +76,10 @@ var zoom = d3.behavior.zoom()
   .on("zoom", zoomed);
 
 var svg = d3.select('div#d3example1').append("svg")
-  //.attr("width", '100%')
-  //.attr("height", '100%')
-  .attr("width", width+margin.left + margin.right)
-	.attr("height",height+margin.top + margin.bottom)
-  //.attr('viewBox','0 0 '+ Math.min(width, height)+ ' '+ Math.min(width, height))
-  //.attr('preserveAspectRatio','xMinYMin')
+  .attr("width", width + margin.left + margin.right)
+	.attr("height",height + margin.top + margin.bottom)
   .append("g");
-  //.attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")");
 
-//d3.select(window)
-//  .on("resize", function() {
-//    var targetWidth = chart.node().getBoundingClientRect().width;
-//    chart.attr("width", targetWidth);
- //   chart.attr("height", targetWidth / aspect);
-  //  console.log(aspect);
-  //});
 resize();
 d3.select(window).on("resize", resize);
 
@@ -106,8 +90,6 @@ function resize() {
     height = height - margin.top - margin.bottom;
     svg.attr("width", width).attr("height", height);
     force.size([width, height]).resume();
-    console.log(width);
-    console.log(height);
   }
 
 var tip = d3.tip()
