@@ -24,7 +24,7 @@ layout: home
 
 <script>
 
-var margin = {top: 10, right: 50, bottom: 20, left: 50},
+var margin = {top: 0, right: 50, bottom: 20, left: 50},
     width = 850 - margin.left - margin.right,
     height = 550 - margin.top - margin.bottom;
 
@@ -70,6 +70,20 @@ var graph =  {{ site.data.ncaa_2016 | jsonify }};
           .on("start", dragstarted)
           .on("drag", dragged)
           .on("end", dragended));
+
+  resize();
+  d3.select(window).on('resize', resize);
+
+  function resize(){
+      width = parseInt(d3.select("div#ncaa_season").style('width'), 10);
+      height = parseInt(d3.select("div#ncaa_season").style("height"),10);
+      height = height - margin.top - margin.bottom + 20;
+      simulation
+          .force("center", d3.forceCenter(width / 2, height / 2))
+          // higher the alpha level seems to make the vis more spread
+          .alpha(1.5)
+          .restart();
+  }
 
   node.append("title")
       .text(function(d) { return d.id; });
