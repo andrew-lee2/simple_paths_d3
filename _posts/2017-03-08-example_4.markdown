@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Example 3"
+title:  "Example 4"
 date:   2017-03-09 20:11:10 -0600
 categories: d3
-desc: "5 node example with different edgeweights and cycles"
+desc: "6 node example with equal edgeweights"
 jsarr:
 - js/d3.tip.v0.6.3.js
 - js/simple_path_fun.js
@@ -11,32 +11,37 @@ cssarr:
 - css/d3_graph.css
 ---
 
-<div id="d3example3"></div>
+<div id="d3example4"></div>
 
 <script>
 
 graph = {
   "nodes": [
-      {"name": "A", "label": "(1/2) + (1/4) + (1/16) + (1/32)"}, 
-      {"name": "B", "label": "(1/2) + 2(1/8) + (1/16)"}, 
-      {"name": "C", "label": "2(1/4) + 2(1/8)"}, 
-      {"name": "D", "label": "(1/2) + (1/4) + (1/16) + (1/32)"},
-      {"name": "E", "label": "(1/2) + 2(1/8) + (1/16)"}],
+      {"name": "A", "label": "2(1/3) + 1(1/9)"}, 
+      {"name": "B", "label": "3(1/3) + 3(1/9) + 2(1/27) + 3(1/81)"}, 
+      {"name": "C", "label": "0"}, 
+      {"name": "D", "label": "1(1/3) + 1(1/9) + 1(1/27)"},
+      {"name": "E", "label": "2(1/3) + 1(1/9) + 2(1/27)"},
+      {"name": "F", "label": "1(1/3) + 2(1/9)"}],
   "links": [
-      {"source": 0, "target": 1, "value" :1}, 
+      {"source": 0, "target": 2, "value" :1}, 
+      {"source": 0, "target": 3, "value" :1}, 
       {"source": 1, "target": 2, "value" :1}, 
-      {"source": 2, "target": 0, "value" :1}, 
-      {"source": 2, "target": 3, "value" :1}, 
-      {"source": 3, "target": 4, "value" :1},
-      {"source": 4, "target": 2, "value" :1}]
+      {"source": 1, "target": 3, "value" :1}, 
+      {"source": 1, "target": 4, "value" :1},
+      {"source": 3, "target": 5, "value" :1},
+      {"source": 4, "target": 2, "value" :1},
+      {"source": 4, "target": 5, "value" :1},
+      {"source": 5, "target": 0, "value" :1}]
 };
 
 var sample_graph = {
-    'A': ['B'],
-    'B': ['C'],
-    'C': ['A', 'D'],
-    'D': ['E'],
-    'E': ['C']
+    'A': ['C', 'D'],
+    'B': ['C', 'D', 'E'],
+    'C': [],
+    'D': ['F'],
+    'E': ['C', 'F'],
+    'F': ['A'],
 };
 var linkedByIndex = {};
 graph.links.forEach(function(d) {
@@ -59,7 +64,7 @@ var zoom = d3.behavior.zoom()
   .scaleExtent([1, 10])
   .on("zoom", zoomed);
 
-var svg = d3.select('div#d3example3').append("svg")
+var svg = d3.select('div#d3example4').append("svg")
   .attr("width", width + margin.left + margin.right)
 	.attr("height",height + margin.top + margin.bottom)
   .append("g");
@@ -68,9 +73,9 @@ resize();
 d3.select(window).on("resize", resize);
 
 function resize() {
-    width = parseInt(d3.select("div#d3example3").style('width'), 10);
+    width = parseInt(d3.select("div#d3example4").style('width'), 10);
     width = width - margin.left - margin.right;
-    height = parseInt(d3.select("div#d3example3").style("height"));
+    height = parseInt(d3.select("div#d3example4").style("height"));
     height = height - margin.top - margin.bottom;
     svg.attr("width", width).attr("height", height);
     force.size([width, height]).resume();
@@ -91,6 +96,7 @@ var rect = svg.append("rect")
 var container = svg.append("g");
 
 var defs = container.append("svg:defs");
+
 // build the arrow.
 var arrows = defs.selectAll("marker")
   .data(["end", "end-active"]) // Different link/path types can be defined here
@@ -112,6 +118,7 @@ var link = container.append("g").selectAll("path")
   .enter().append("path")
     .attr("class", "link")
     .attr("marker-end", "url(#end)");
+
 var node = container.append("g").selectAll(".node")
   .attr("class", "nodes")
   .data(force.nodes())
@@ -142,14 +149,15 @@ node.append("text")
  Holding down over a vertex allows repositioning of the graph.
 
 **Summary Table:**
- 
+
 |-----------------+-------------+-----------------|
 |      Node       |*V(x)*       |  Final Ranking  |
 |:---------------:|------------:|:---------------:|
-| A               |0.84         | 1               |
-| B               |0.81         | 3               |
-| C               |0.75         | 5               |
-| D               |0.84         | 1               |
-| E               |0.81         | 3               |
+| A               |0.78         | 3               |
+| B               |1.44         | 1               |
+| C               |0            | 6               |
+| D               |0.48         | 5               |
+| E               |0.85         | 2               |
+| F               |0.56         | 4               |
 |-----------------+-------------+-----------------|
 {:.mbtablestyle}
