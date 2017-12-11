@@ -3,7 +3,7 @@ layout: post
 title:  "Example 4"
 date:   2017-03-09 20:11:10 -0600
 categories: d3
-desc: "6 node example with equal edgeweights"
+desc: "5 node acyclic graph example"
 jsarr:
 - js/d3.tip.v0.6.3.js
 - js/simple_path_fun.js
@@ -17,31 +17,29 @@ cssarr:
 
 graph = {
   "nodes": [
-      {"name": "A", "label": "2(1/3) + 1(1/9)"}, 
-      {"name": "B", "label": "3(1/3) + 3(1/9) + 2(1/27) + 3(1/81)"}, 
-      {"name": "C", "label": "0"}, 
-      {"name": "D", "label": "1(1/3) + 1(1/9) + 1(1/27)"},
-      {"name": "E", "label": "2(1/3) + 1(1/9) + 2(1/27)"},
-      {"name": "F", "label": "1(1/3) + 2(1/9)"}],
+      {"name": "A", "label": "3(1/3) + 6(1/12) + 4(1/48) + (1/192)"}, 
+      {"name": "B", "label": "3(1/4) + 3(1/16) + (1/64)"}, 
+      {"name": "C", "label": "2(1/4) + (1/16)"}, 
+      {"name": "D", "label": "(1/4)"},
+      {"name": "E", "label": "0"}],
   "links": [
+      {"source": 0, "target": 1, "value" :1}, 
       {"source": 0, "target": 2, "value" :1}, 
       {"source": 0, "target": 3, "value" :1}, 
       {"source": 1, "target": 2, "value" :1}, 
-      {"source": 1, "target": 3, "value" :1}, 
+      {"source": 1, "target": 3, "value" :1},
       {"source": 1, "target": 4, "value" :1},
-      {"source": 3, "target": 5, "value" :1},
-      {"source": 4, "target": 2, "value" :1},
-      {"source": 4, "target": 5, "value" :1},
-      {"source": 5, "target": 0, "value" :1}]
+      {"source": 2, "target": 3, "value" :1},
+      {"source": 2, "target": 4, "value" :1},
+      {"source": 3, "target": 4, "value" :1}]
 };
 
 var sample_graph = {
-    'A': ['C', 'D'],
+    'A': ['B', 'C', 'D'],
     'B': ['C', 'D', 'E'],
-    'C': [],
-    'D': ['F'],
-    'E': ['C', 'F'],
-    'F': ['A'],
+    'C': ['D', 'E'],
+    'D': ['E'],
+    'E': [],
 };
 var linkedByIndex = {};
 graph.links.forEach(function(d) {
@@ -153,11 +151,10 @@ node.append("text")
 |-----------------+-------------+-----------------|
 |      Node       |*V(x)*       |  Final Ranking  |
 |:---------------:|------------:|:---------------:|
-| A               |0.78         | 3               |
-| B               |1.44         | 1               |
-| C               |0            | 6               |
-| D               |0.48         | 5               |
-| E               |0.85         | 2               |
-| F               |0.56         | 4               |
+| A               |1.59         | 1               |
+| B               |0.95         | 2               |
+| C               |0.56         | 3               |
+| D               |0.25         | 4               |
+| E               |0            | 5               |
 |-----------------+-------------+-----------------|
 {:.mbtablestyle}
